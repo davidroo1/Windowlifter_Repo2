@@ -77,10 +77,6 @@ void disableWatchdog(void)
   SWT.CR.R = 0x8000010A;     /* Clear watchdog enable (WEN) */
 }
 
-T_UBYTE Function1(T_UBYTE *rpub_U8Ptr)
-{
-	return (*rpub_U8Ptr);
-}   
 
 /*****************************************************************************************************
 * Definition of global wide MACROs / #DEFINE-CONSTANTs
@@ -89,22 +85,38 @@ T_UBYTE Function1(T_UBYTE *rpub_U8Ptr)
 /*****************************************************************************************************
 * Declaration of module wide TYPEs 
 *****************************************************************************************************/
-    
-T_UBYTE (*rpfu_PtrToFctn)(T_UBYTE *); /* Our pointer to function */ 
+
 
 /******************************************************************************************************
 * Definition of module wide VARIABLEs 
 ******************************************************************************************************/
 
- T_UBYTE rub_Var1 = 0xFA; 
- T_UBYTE rub_Var2; 
- T_UBYTE * rpub_PtrToU8;
+
  
 /******************************************************************************************************
 * Code of module wide FUNCTIONS
 ******************************************************************************************************/
 
-void BackgroundSubsystemTasks(void);
+
+
+/* Inline functions */
+/* ---------------- */
+/**************************************************************
+ *  Name                 : main
+ *  Description          : Main function with PIT to call our interrupt function every 1ms
+ *  Parameters           : 
+ *  Return               :
+ *  Critical/explanation :    Yes. Main Function
+ **************************************************************/
+ 
+ /**************************************************************
+ *  Name                 : BackgroundSubsystemTasks
+ *  Description          : Background subsystem 
+ *  Parameters           : 
+ *  Return               :
+ *  Critical/explanation :    No
+ **************************************************************/
+
 
 /*~~~~~~~ Main Code ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
@@ -154,30 +166,13 @@ T_UBYTE j;
 	for (;;) 
 	{
 	
-        BackgroundSubsystemTasks();
+       
 	}
 }
 
 /*~~~~~~~ End of Main Code ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-/* Background tasks related to Subsystem control */
-void BackgroundSubsystemTasks(void) 
-{
-	rpub_PtrToU8 = &rub_Var1; /* We need to initialize the pointer to be used by our function invocation */
 
-    rpfu_PtrToFctn = &Function1; /* Let's perform our deferencing procedure (initialization) */
-
-    /* Let's first call our function through direct invocation */
-    rub_Var2 = Function1(rpub_PtrToU8);
-    
-    /* Clear var2 in preparation to next invocation */
-    rub_Var2 = 0;
-
-    /* Now, perform invocation through our pointer */
-    rub_Var2 = rpfu_PtrToFctn(rpub_PtrToU8);
-
-    /* See, I told you, pointers to functions are FUN !! */;
-}
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 

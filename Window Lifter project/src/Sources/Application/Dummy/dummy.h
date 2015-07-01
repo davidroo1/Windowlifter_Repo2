@@ -48,13 +48,8 @@
 
 /*-- Function Prototypes -----------------------------------------------------*/
 
-void Test(void);
+
 void dummy_1ms (void);
-void dummmy_endless_loop (void);
-void Task_5ms (void);
-void Task_10ms (void);
-void Task_50ms (void);
-void Task_100ms (void);
 
 
 #endif /* _DUMMY_H */
