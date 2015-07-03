@@ -109,13 +109,6 @@ void disableWatchdog(void)
  *  Critical/explanation :    Yes. Main Function
  **************************************************************/
  
- /**************************************************************
- *  Name                 : BackgroundSubsystemTasks
- *  Description          : Background subsystem 
- *  Parameters           : 
- *  Return               :
- *  Critical/explanation :    No
- **************************************************************/
 
 
 /*~~~~~~~ Main Code ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

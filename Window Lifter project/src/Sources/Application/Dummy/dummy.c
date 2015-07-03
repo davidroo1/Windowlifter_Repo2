@@ -99,7 +99,9 @@ T_UWORD x;
 /* ----------------------------- */
 
 /* Inline functions */
-/* ---------------- */
+/* ---------------- */ 
+ 
+
 /**************************************************************
  *  Name                 : opening_func
  *  Description          : Fuction emulates opening window by turning off leds
@@ -107,26 +109,6 @@ T_UWORD x;
  *  Return               :   None
  *  Critical/explanation :     No
  **************************************************************/
-
-/**************************************************************
- *  Name                 : closing_func
- *  Description          : Fuction emulates closing window by turning on leds
- *  Parameters           :  None
- *  Return               :   None
- *  Critical/explanation :     No
- **************************************************************/
- 
- /**************************************************************
- *  Name                 : dummy_1ms
- *  Description          : Fuction is called every 1ms and contains our main state machine
- *  Parameters           :  None
- *  Return               :   None
- *  Critical/explanation :     No
- **************************************************************/
- 
- 
-
-
 
 
 
@@ -139,7 +121,13 @@ void opening_func ()  /*Fuction emulates opening window by turning off leds*/
 	
 }
 
-
+/**************************************************************
+ *  Name                 : closing_func
+ *  Description          : Fuction emulates closing window by turning on leds
+ *  Parameters           :  None
+ *  Return               :   None
+ *  Critical/explanation :     No
+ **************************************************************/
 
 void closing_func ()    /*Fuction emulates closing window by turning on leds*/
 {
@@ -150,7 +138,14 @@ void closing_func ()    /*Fuction emulates closing window by turning on leds*/
 	
 }
 
-
+/**************************************************************
+ *  Name                 : dummy_1ms
+ *  Description          : Fuction is called every 1ms and contains our main state machine
+ *  Parameters           :  None
+ *  Return               :   None
+ *  Critical/explanation :     No
+ **************************************************************/
+ 
 /*main function called every 1ms, contains all processes of the state machine*/
 void dummy_1ms(void)  
 {
